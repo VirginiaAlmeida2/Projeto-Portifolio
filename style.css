@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); /* Importa a fonte Roboto do Google Fonts */
+
+:root{ /* Variáveis de cores do site */
+    --primary-color: red;
+    --secondary-color: black;
+    --text-color: red;
+    --tex-color2: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Permite rolagem suave ao clicar em links de âncoras */
+    font-family: "Roboto", sans-serif; /* Fonte padrão para todo o site */
+}
+
+body {
+    color: white;
+    background-color: var(--secondary-color);
+}
+
+.fixo-botao {
+    position: fixed; /* Fixa o botão na tela */
+    background-color: transparent; /* Fundo transparente para o botão */
+    bottom: 20px; /*  Distância do botão da parte inferior da tela */
+    right: 20px; /* Distância do botão da lateral direita da tela */
+    padding: 10px 20px;  /* Espaçamento interno do botão */
+    border: none; /* Remove borda do botão */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+    
+    &:hover {
+        cursor: pointer; /* Muda o cursor para pointer ao passar o mouse */
+        animation: botaowhats 0.5s ease infinite alternate-reverse; /* Animação de hover para o botão */
+    }
+}
+
+.btn {
+    background-color: black;
+    color: var(--text-color);
+    padding: 10px 20px;
+    text-decoration: none; /* Remove sublinhado do link */
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    
+    &:hover{
+        color: white;
+        background-color: var(--secondary-color);
+    }
+}
+
+header {
+    display: flex; /* Flexbox para layout do header */
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: space-between; /* Alinha os itens do header */
+    width: 100%;
+    position: sticky; /* Fixa o header no topo da página */
+    top: 0; /* Fixa o header no topo */
+    z-index: 0; /* Garante que o header fique acima de outros elementos */
+    
+    nav{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img{
+            max-width: 60px;
+        }
+        
+        ul {
+            display: flex;
+            list-style: none; /* Remove marcadores da lista */
+            gap: 20px;
+
+            li a {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--tex-color2);
+                text-decoration: none;
+                transition: color 0.5s;
+                cursor: pointer;
+                &:hover {
+                    color: white;   /* Muda a cor do texto ao passar o mouse */
+                }
+            }
+        }
+    }
+}
+
+#hero {
+    display: flex; /* Flexbox para layout do hero */
+    background-image: url('./img/image-hero2.jpg'); /* Imagem de fundo do hero */
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    height: 100vh; /* Altura total da viewport */
+    text-align: center; /* Centraliza o texto */
+    color: var(--text-color);
+    
+    h1 {
+        color: black;
+        background-color: red;
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    p {
+        color: black;
+        background-color: red;
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    a {
+        background-color: var(--primary-color);
+        color: var(--tex-color2);
+        padding: 10px 20px;
+        border: 2px solid var(--tex-color2);
+        border-radius: 10px;
+        font-size: 1.5rem;
+        transition: background-color 0.5s, color 0.5s; /* Transição suave para as cores */
+
+        &:hover {
+            background: linear-gradient(90deg,rgba(255, 128, 0, 1) 0%, rgba(0, 224, 84, 1) 50%, rgba(64, 188, 244, 1) 100%); /* Muda a cor do texto ao passar o mouse */
+        }
+    }
+}
+
+#cinema {
+    display: flex; /* Flexbox para layout da seção de cinema */
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    padding: 50px 20px;
+    text-align: center;
+    
+    h2 {
+        color: var(--text-color);
+        font-size: 3rem;
+        padding: 0.5rem;
+    }
+    
+    p {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .box {
+        width: 100%; /* Largura total da caixa */
+        height: 100%; /* Altura total da caixa */
+        padding: 2rem; /* Espaçamento interno da caixa */
+        display: flex; /* Flexbox para layout dos gêneros */
+        flex-direction: row; /* Coloca os itens em linha */
+        align-items: center; /* Alinha os itens verticalmente */
+        justify-content: center; /* Alinha os itens horizontalmente */
+        gap: 20px; /* Espaçamento entre os itens */
+        max-width: 1200px; /* Largura máxima da caixa */
+
+        h3 {
+            color: var(--text-color);
+            font-size: 2rem; /* Tamanho da fonte dos títulos */
+            margin-top: 10px; /* Margem superior dos títulos */
+        }
+
+        p {
+            color: var(--text-color);
+            font-size: 1.2rem; /* Tamanho da fonte das descrições */
+            margin-top: 5px; /* Margem superior das descrições */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+            filter: brightness(2.0);
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}
+
+
+@keyframes botaowhats {
+    from{
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+        }
+}
