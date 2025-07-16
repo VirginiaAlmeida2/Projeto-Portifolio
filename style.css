@@ -18,6 +18,7 @@
 body {
     color: white;
     background-color: var(--secondary-color);
+    overflow-x: hidden; /* Impede rolagem horizontal */
 }
 
 .fixo-botao {
@@ -31,7 +32,7 @@ body {
     
     &:hover {
         cursor: pointer; /* Muda o cursor para pointer ao passar o mouse */
-        animation: botaowhats 0.5s ease infinite alternate-reverse; /* Animação de hover para o botão */
+        animation: botaopod 0.5s ease infinite alternate-reverse; /* Animação de hover para o botão */
     }
 }
 
@@ -40,19 +41,19 @@ body {
     color: var(--text-color);
     padding: 10px 20px;
     text-decoration: none; /* Remove sublinhado do link */
-    border: 2px solid var(--text-color);
     border-radius: 10px;
     
     &:hover{
         color: white;
-        background-color: var(--secondary-color);
+        background-color: var(--primary-color);
+        border: 2px solid var(--secondary-color); /* Borda vermelha ao passar o mouse */
     }
 }
 
 header {
     display: flex; /* Flexbox para layout do header */
     background-color: var(--primary-color);
-    padding: 10px 20px;
+    padding: 5px 10px;
     align-items: center;
     justify-content: space-between; /* Alinha os itens do header */
     width: 100%;
@@ -76,12 +77,15 @@ header {
 
             li a {
                 font-size: 1.5rem;
-                font-weight: 700;
+                font-weight: 700px;
                 color: var(--tex-color2);
-                text-decoration: none;
-                transition: color 0.5s;
+                text-decoration: none; /* Remove sublinhado do link */
+                transition: color 1s; /* Transição suave para a cor do texto */
+                padding: 10px 15px; /* Espaçamento interno do link */
                 cursor: pointer;
+                
                 &:hover {
+                    font-weight: 900;
                     color: white;   /* Muda a cor do texto ao passar o mouse */
                 }
             }
@@ -92,12 +96,27 @@ header {
 #hero {
     display: flex; /* Flexbox para layout do hero */
     background-image: url('./img/image-hero2.jpg'); /* Imagem de fundo do hero */
-    flex-direction: column; /* Coloca os itens em coluna */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    height: 100vh; /* Altura total da viewport */
-    text-align: center; /* Centraliza o texto */
+    transition: background-image 5s ease-in-out;
+    background-size: cover;
+    background-position: center; /* Centraliza a imagem de fundo */
+    background-repeat: no-repeat; /* Não repete a imagem de fundo */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
     color: var(--text-color);
+    cursor: wait;
+    background-clip: content-box; /* Garante que o fundo não se estenda além do conteúdo */
+
+    &:hover {
+        background-image: url('./img/image-hero.jpg'); /* Muda a imagem de fundo ao passar o mouse */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-clip: content-box;
+    }
     
     h1 {
         color: black;
@@ -117,10 +136,10 @@ header {
         background-color: var(--primary-color);
         color: var(--tex-color2);
         padding: 10px 20px;
-        border: 2px solid var(--tex-color2);
+
         border-radius: 10px;
         font-size: 1.5rem;
-        transition: background-color 0.5s, color 0.5s; /* Transição suave para as cores */
+        transition: background-color 1s, color 1s; /* Transição suave para as cores */
 
         &:hover {
             background: linear-gradient(90deg,rgba(255, 128, 0, 1) 0%, rgba(0, 224, 84, 1) 50%, rgba(64, 188, 244, 1) 100%); /* Muda a cor do texto ao passar o mouse */
@@ -129,17 +148,35 @@ header {
 }
 
 #cinema {
-    display: flex; /* Flexbox para layout da seção de cinema */
-    flex-direction: column; /* Coloca os itens em coluna */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    padding: 50px;
     text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
     
     h2 {
         color: var(--text-color);
         font-size: 3rem;
         padding: 0.5rem;
+    }
+
+    img {
+        width: 100%; /* Largura total da imagem */
+        height: auto; /* Mantém a proporção da imagem */
+        max-width: 600px; /* Limita a largura máxima da imagem */
+        max-height: 300px; /* Limita a altura máxima da imagem */
+        border-radius: 10px;
+        transition: transform 2s ease;
+
+        &:hover {
+            border: 2px solid red; /* Borda vermelha ao passar o mouse */
+            transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
+            cursor: pointer;
+        }
     }
     
     p {
@@ -149,15 +186,10 @@ header {
     }
 
     .box {
-        width: 100%; /* Largura total da caixa */
-        height: 100%; /* Altura total da caixa */
-        padding: 2rem; /* Espaçamento interno da caixa */
-        display: flex; /* Flexbox para layout dos gêneros */
-        flex-direction: row; /* Coloca os itens em linha */
-        align-items: center; /* Alinha os itens verticalmente */
-        justify-content: center; /* Alinha os itens horizontalmente */
-        gap: 20px; /* Espaçamento entre os itens */
-        max-width: 1200px; /* Largura máxima da caixa */
+        display: flex;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: auto;
 
         h3 {
             color: var(--text-color);
@@ -175,17 +207,104 @@ header {
             text-decoration: none;
             color: var(--text-color);
             font-size: 1.2rem;
-            transition: color 0.3s;
-            filter: brightness(2.0);
+            transition: color 0.3s; /* Transição suave para a cor do texto */
+            filter: brightness(2.0); /* Aumenta o brilho do link */
+            
             &:hover {
                 color: white;
+                padding: 10px;
+                border: 2px solid white; /* Borda vermelha ao passar o mouse */
             }
         }
     }
 }
 
+#tierlist {
+    .caixaterir {
+        display: flex;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: auto;
+        padding: 50px;
+    }
 
-@keyframes botaowhats {
+    .caixa_principal {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+    }
+
+    .larga {
+        flex: 1;
+        height: 200px;
+    }
+
+    .caixa_dois {
+        display: flex;
+        gap: 10px;
+    }
+
+    .dupla {
+        color: var(--primary-color);
+        flex: 1;
+        transition: border-color 1s ease;
+
+        &:hover {
+            text-align: center;
+            border: 5px solid red; /* Borda vermelha ao passar o mouse */
+            cursor: pointer;
+        }
+
+        i {
+            padding: 10px 5px;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            padding: 5px 0;
+        }
+
+    .grande {
+        flex: 1;
+    }
+
+    .saiba {
+        width: 100px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: red;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid red;
+        
+        &:hover {
+            color: black;
+            text-align: center;
+            background-color: var(--primary-color);
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+@keyframes botaopod {
     from{
         transform: scale(0);
     }
