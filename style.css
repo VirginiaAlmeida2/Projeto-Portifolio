@@ -123,8 +123,8 @@ header {
         margin-bottom: 20px;
 
         &:hover {
-                padding: 10px;
-                background-color: var(--color-back);
+            padding: 10px;
+            background-color: var(--color-back);
         }
     }
     
@@ -134,8 +134,8 @@ header {
         margin-bottom: 40px;
 
         &:hover {
-                padding: 10px;
-                background-color: var(--color-back);
+            padding: 10px;
+            background-color: var(--color-back);
         }
     }
 
@@ -155,16 +155,15 @@ header {
 }
 
 #subgeneros {
-    color: red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
     padding: 40px 0;
+    color: red;
 
     h2{
-        color: var(--text-color);
         font-size: 2rem;
         max-width: 85vw;
         text-align: center;  
@@ -186,11 +185,11 @@ header {
                 object-fit: cover;
                 transition: transform 2.5s ease;
 
-                /* &:hover {
+                &:hover {
                     cursor: pointer;
                     border: 3px solid var(--color-border);
                     transform: scale(1.5);
-                } */
+                }
             }
 
             .text-box {
