@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); /* Importa a fonte Roboto do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{ /* Variáveis de cores do site */
-    --primary-color: red;
-    --secondary-color: black;
+    --color-back: black;
     --text-color: red;
-    --tex-color2: black;
     --color-star: yellow;
+    --color-border: red;
 }
 
 * {
@@ -17,8 +16,7 @@
 }
 
 body {
-    color: white;
-    background-color: var(--secondary-color);
+    background-color: var(--color-back);
     overflow-x: hidden; /* Impede rolagem horizontal */
 }
 
@@ -46,14 +44,14 @@ body {
     
     &:hover{
         color: white;
-        background-color: var(--primary-color);
-        border: 2px solid var(--secondary-color); /* Borda vermelha ao passar o mouse */
+        background-color: var(--color-border);
+        border: 2px solid var(--color-back); /* Borda preta ao passar o mouse */
     }
 }
 
 header {
     display: flex; /* Flexbox para layout do header */
-    background-color: var(--primary-color);
+    background-color: red;
     padding: 5px 10px;
     align-items: center;
     justify-content: space-between; /* Alinha os itens do header */
@@ -120,29 +118,29 @@ header {
     }
     
     h1 {
-        color: red;
+        color: var(--text-color);
         font-size: 3rem;
         margin-bottom: 20px;
 
         &:hover {
                 padding: 10px;
-                background-color: black;
+                background-color: var(--color-back);
         }
     }
     
     p {
-        color: red;
+        color: var(--text-color);
         font-size: 2rem;
         margin-bottom: 40px;
 
         &:hover {
                 padding: 10px;
-                background-color: black;
+                background-color: var(--color-back);
         }
     }
 
     a {
-        background-color: var(--primary-color);
+        background-color: var(--text-color);
         color: var(--tex-color2);
         padding: 10px 20px;
 
@@ -156,72 +154,78 @@ header {
     }
 }
 
-#cinema {
+#subgeneros {
+    color: red;
     display: flex;
     flex-direction: column;
-    align-items: center; 
     justify-content: center;
-    padding: 50px;
-    text-align: center;
-    width: 100%;
-    margin: auto;
-    
-    h2 {
+    align-items: center;
+    gap: 10px;
+    padding: 40px 0;
+
+    h2{
         color: var(--text-color);
-        font-size: 3rem;
-        padding: 0.5rem;
+        font-size: 2rem;
+        max-width: 85vw;
+        text-align: center;  
     }
 
-    img {
-        width: 100%; /* Largura total da imagem */
-        height: auto; /* Mantém a proporção da imagem */
-        max-width: 600px; /* Limita a largura máxima da imagem */
-        max-height: 300px; /* Limita a altura máxima da imagem */
-        border-radius: 10px;
-        transition: transform 2s ease;
+    #box-sub {
+        display: grid;
+        grid-template-columns: repeat(3,3fr);
+        gap: 10px;
+        max-width: 85vw;
 
-        &:hover {
-            border: 2px solid red; /* Borda vermelha ao passar o mouse */
-            transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
-            cursor: pointer;
-        }
-    }
-    
-    p {
-        color: var(--text-color);
-        font-size: 1.5rem;
-        padding: 1rem;
-    }
+        .box {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
 
-    .box {
-        display: flex;
-        gap: 2rem;
-        max-width: 1200px;
-        margin: auto;
+            img {
+                max-width: 100%;
+                object-fit: cover;
+                transition: transform 2.5s ease;
 
-        h3 {
-            color: var(--text-color);
-            font-size: 2rem; /* Tamanho da fonte dos títulos */
-            margin-top: 10px; /* Margem superior dos títulos */
-        }
+                /* &:hover {
+                    cursor: pointer;
+                    border: 3px solid var(--color-border);
+                    transform: scale(1.5);
+                } */
+            }
 
-        p {
-            color: var(--text-color);
-            font-size: 1.2rem; /* Tamanho da fonte das descrições */
-            margin-top: 5px; /* Margem superior das descrições */
-        }
+            .text-box {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
 
-        a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 1.2rem;
-            transition: color 0.3s; /* Transição suave para a cor do texto */
-            filter: brightness(2.0); /* Aumenta o brilho do link */
-            
-            &:hover {
-                color: white;
-                padding: 10px;
-                border: 2px solid white; /* Borda vermelha ao passar o mouse */
+                h3 {
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                }
+
+                p {
+                    font-size: 1rem;
+                    font-weight: 300;
+                }
+
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1rem;
+                    text-decoration: none;
+                    color: var(--text-color);
+
+                    &:hover {
+                        border: 3px solid var(--color-border);
+                    }
+
+                    i {
+                        margin-left: 5px;
+                        font-size: 0.8em;
+                    }
+                }
             }
         }
     }
@@ -258,7 +262,7 @@ header {
     }
 
     .dupla {
-        color: var(--primary-color);
+        color: var(--color-border);
         flex: 1;
         transition: border-color 1s ease;
 
@@ -309,7 +313,7 @@ header {
         &:hover {
             color: black;
             text-align: center;
-            background-color: var(--primary-color);
+            background-color: var(--color-border);
             cursor: pointer;
         }
     }
