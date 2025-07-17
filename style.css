@@ -5,6 +5,7 @@
     --secondary-color: black;
     --text-color: red;
     --tex-color2: black;
+    --color-star: yellow;
 }
 
 * {
@@ -119,17 +120,25 @@ header {
     }
     
     h1 {
-        color: black;
-        background-color: red;
+        color: red;
         font-size: 3rem;
         margin-bottom: 20px;
+
+        &:hover {
+                padding: 10px;
+                background-color: black;
+        }
     }
     
     p {
-        color: black;
-        background-color: red;
+        color: red;
         font-size: 2rem;
         margin-bottom: 40px;
+
+        &:hover {
+                padding: 10px;
+                background-color: black;
+        }
     }
 
     a {
@@ -139,10 +148,10 @@ header {
 
         border-radius: 10px;
         font-size: 1.5rem;
-        transition: background-color 1s, color 1s; /* Transição suave para as cores */
+        transition: background-color 1s, color 1s; 
 
         &:hover {
-            background: linear-gradient(90deg,rgba(255, 128, 0, 1) 0%, rgba(0, 224, 84, 1) 50%, rgba(64, 188, 244, 1) 100%); /* Muda a cor do texto ao passar o mouse */
+            background: linear-gradient(90deg,rgba(255, 128, 0, 1) 0%, rgba(0, 224, 84, 1) 50%, rgba(64, 188, 244, 1) 100%); 
         }
     }
 }
@@ -155,7 +164,6 @@ header {
     padding: 50px;
     text-align: center;
     width: 100%;
-    max-width: 1200px;
     margin: auto;
     
     h2 {
@@ -188,7 +196,7 @@ header {
     .box {
         display: flex;
         gap: 2rem;
-        max-width: 1000px;
+        max-width: 1200px;
         margin: auto;
 
         h3 {
@@ -222,10 +230,13 @@ header {
 #tierlist {
     .caixaterir {
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 2rem;
         max-width: 1200px;
         margin: auto;
         padding: 50px;
+        padding: 80px 20px;
     }
 
     .caixa_principal {
@@ -236,6 +247,7 @@ header {
     }
 
     .larga {
+        color: red;
         flex: 1;
         height: 200px;
     }
@@ -265,6 +277,7 @@ header {
         }
 
         p {
+            font-size: 1rem;
             padding: 5px 0;
         }
 
@@ -302,7 +315,254 @@ header {
     }
 }
 
+#livros {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
 
+    h2 {
+        color: var(--text-color);
+        font-size: 3rem;
+        padding: 0.5rem;
+    }
+
+    img {
+        width: 100%; /* Largura total da imagem */
+        height: auto; /* Mantém a proporção da imagem */
+        max-width: 600px; /* Limita a largura máxima da imagem */
+        max-height: 300px; /* Limita a altura máxima da imagem */
+        border-radius: 10px;
+        transition: transform 2s ease;
+
+        &:hover {
+            border: 2px solid red;
+            transform: scale(1.05); 
+            cursor: pointer;
+        }
+    }
+
+    p {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .bookbox {
+        display: flex;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: auto;
+
+        h3 {
+            color: var(--text-color);
+            font-size: 2rem; /* Tamanho da fonte dos títulos */
+            margin-top: 10px; /* Margem superior dos títulos */
+        }
+
+        p {
+            color: var(--text-color);
+            font-size: 1.5rem; /* Tamanho da fonte das descrições */
+            margin-top: 5px; /* Margem superior das descrições */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            transition: color 0.3s; /* Transição suave para a cor do texto */
+            filter: brightness(2.0); /* Aumenta o brilho do link */
+            
+            &:hover {
+                color: white;
+                padding: 10px;
+                border: 2px solid white; /* Borda vermelha ao passar o mouse */
+            }
+        }
+    }
+}
+
+#criticas {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+
+        h2 {
+            font-size: 3rem;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        h3{
+            color: red;
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: red;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .criticas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 85vw;
+        }
+
+        .criticas-caixa {
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+            &:hover {
+                border: 2px solid red;
+                transform: scale(1.05); 
+                cursor: pointer;
+            }
+
+            .centro {
+                text-align: center;
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+        }
+
+    .stars {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-star);
+        font-size: 16px;
+        margin-bottom: 15px;
+
+        i {
+            margin-right: 2px;
+        }
+    }
+}
+
+.film-info {
+    h2 {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: red;
+        margin-bottom: 0;
+    }
+}
+
+#contato {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    h2 {
+        color: red;
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: red;
+        margin-bottom: 30px;
+        font-size: 1.5em;
+    }
+
+    .contato-box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 85vw;
+    }
+
+    .contato-boxs{
+        border: 3px solid red;
+        text-align: center;
+        padding: 20px;
+
+        i {
+            color: red;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+    
+        h3 {
+            color: red;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: red;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        a, address {
+            color: red;
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            }
+    }   
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--tex-color2);
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Permite posicionamento absoluto dos elementos internos */
+    
+    p {
+        font-size: 1.5rem;
+        margin-bottom: 10px; /* Margem inferior do texto do rodapé */
+    }
+
+    .socials {
+        display: flex;
+        justify-content: center; /* Centraliza os ícones sociais */
+        gap: 20px; /* Espaçamento entre os ícones sociais */
+        
+        a {
+            color: var(--tex-color2);
+            font-size: 1.5rem; /* Tamanho dos ícones sociais */
+            transition: color 0.3s; /* Transição suave para a cor dos ícones sociais */
+
+            &:hover {
+                color: white; /* Muda a cor dos ícones sociais ao passar o mouse */
+            }
+        }
+    }
+}
 
 @keyframes botaopod {
     from{
@@ -311,4 +571,8 @@ header {
     to {
         transform: scale(1);
         }
+}
+
+@media (max-width: 992px) {
+    
 }
