@@ -539,8 +539,8 @@ header {
 }
 
 footer {
-    background-color: var(--primary-color);
-    color: var(--tex-color2);
+    background-color: var(--text-color);
+    color: var(--color-back);
     text-align: center;
     padding: 20px;
     position: relative; /* Permite posicionamento absoluto dos elementos internos */
